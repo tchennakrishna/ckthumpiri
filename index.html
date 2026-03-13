@@ -3,65 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chennakrishna Thumpiri | Technical Lead – Data & AI Platforms</title>
+  <title>Chennakrishna Thumpiri | Technical Lead – Data Engineering</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-soft: #111827;
-      --surface: rgba(255, 255, 255, 0.08);
-      --surface-strong: rgba(255, 255, 255, 0.12);
-      --card: rgba(255, 255, 255, 0.10);
-      --card-border: rgba(255, 255, 255, 0.14);
-      --text: #e5eefb;
-      --muted: #b8c4d9;
+      --bg: #0b1220;
+      --bg2: #101a2f;
+      --panel: rgba(255,255,255,0.08);
+      --panel-2: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --text: #eef4ff;
+      --muted: #c2cde2;
       --accent: #60a5fa;
-      --accent-2: #22d3ee;
-      --accent-3: #8b5cf6;
+      --accent2: #22d3ee;
       --success: #34d399;
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
+      --shadow: 0 20px 45px rgba(0,0,0,0.28);
+      --chip: rgba(96,165,250,0.14);
     }
 
-    * {
-      box-sizing: border-box;
+    body.light {
+      --bg: #edf3fb;
+      --bg2: #f8fbff;
+      --panel: rgba(255,255,255,0.85);
+      --panel-2: rgba(255,255,255,0.92);
+      --card: rgba(255,255,255,0.95);
+      --border: rgba(15,23,42,0.08);
+      --text: #152235;
+      --muted: #4c5d75;
+      --accent: #2563eb;
+      --accent2: #0891b2;
+      --success: #059669;
+      --shadow: 0 16px 35px rgba(15,23,42,0.10);
+      --chip: rgba(37,99,235,0.08);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 30%),
-        radial-gradient(circle at bottom center, rgba(139, 92, 246, 0.15), transparent 24%),
-        linear-gradient(180deg, #0b1220 0%, #0f172a 45%, #111827 100%);
-      min-height: 100vh;
+        radial-gradient(circle at top left, rgba(34,211,238,0.14), transparent 25%),
+        radial-gradient(circle at top right, rgba(96,165,250,0.14), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      transition: background 0.35s ease, color 0.35s ease;
     }
 
     .page {
-      max-width: 1240px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 28px 18px 40px;
+      padding: 24px 16px 40px;
     }
 
     .hero {
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--card-border);
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.32), rgba(124, 58, 237, 0.24));
-      backdrop-filter: blur(14px);
-      border-radius: 30px;
-      padding: 48px 34px;
+      border-radius: 28px;
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.30), rgba(14,165,233,0.18), rgba(139,92,246,0.18));
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
     }
 
     .hero::before {
@@ -69,99 +77,143 @@
       position: absolute;
       width: 280px;
       height: 280px;
-      background: radial-gradient(circle, rgba(96,165,250,0.35), transparent 65%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.30), transparent 65%);
       top: -80px;
-      right: -40px;
-      pointer-events: none;
+      right: -60px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(34,211,238,0.28), transparent 65%);
-      bottom: -100px;
-      left: -50px;
-      pointer-events: none;
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
+    .identity {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.14);
-      font-size: 13px;
-      font-weight: 700;
-      color: #dbeafe;
-      margin-bottom: 18px;
-      letter-spacing: 0.3px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: 42px;
-      line-height: 1.1;
+    .photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(96,165,250,0.5), rgba(34,211,238,0.35));
+      border: 2px solid rgba(255,255,255,0.24);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
       font-weight: 800;
+      color: white;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .intro h1 {
+      margin: 0 0 8px;
+      font-size: 40px;
+      line-height: 1.08;
       letter-spacing: -0.02em;
     }
 
-    .hero p {
-      margin: 14px 0 0;
-      max-width: 860px;
-      font-size: 17px;
-      line-height: 1.75;
+    .intro p {
+      margin: 0;
       color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 820px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(96,165,250,0.35);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(96,165,250,0.20), rgba(34,211,238,0.14));
     }
 
     .highlights {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
       margin-top: 22px;
     }
 
     .highlight {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
       padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid var(--border);
       backdrop-filter: blur(10px);
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    }
-
-    .highlight:hover {
-      transform: translateY(-4px);
-      border-color: rgba(96,165,250,0.45);
-      background: rgba(255,255,255,0.11);
     }
 
     .highlight strong {
       display: block;
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 6px;
-      color: white;
     }
 
     .highlight span {
       font-size: 13px;
       color: var(--muted);
+      line-height: 1.55;
     }
 
     .tabs-wrap {
-      margin-top: 24px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 22px;
+      margin-top: 22px;
       padding: 10px;
-      backdrop-filter: blur(12px);
+      border-radius: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
     .tabs {
@@ -172,48 +224,34 @@
 
     .tab-button {
       border: none;
-      background: transparent;
-      color: #c7d3e9;
       padding: 12px 18px;
       border-radius: 14px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 800;
       cursor: pointer;
-      font-size: 14px;
-      font-weight: 700;
-      transition: all 0.25s ease;
+      transition: 0.25s ease;
     }
 
+    .tab-button.active,
     .tab-button:hover {
-      background: rgba(255,255,255,0.08);
-      color: white;
+      color: var(--text);
+      background: linear-gradient(135deg, rgba(96,165,250,0.20), rgba(34,211,238,0.12));
+      border: 1px solid var(--border);
     }
 
-    .tab-button.active {
-      background: linear-gradient(135deg, rgba(96,165,250,0.28), rgba(34,211,238,0.18));
-      color: white;
-      border: 1px solid rgba(96,165,250,0.32);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
-    }
+    .content-area { margin-top: 20px; }
 
-    .content-area {
-      margin-top: 20px;
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.28s ease; }
 
     .panel {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: var(--panel-2);
+      border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 28px;
-      backdrop-filter: blur(12px);
+      padding: 26px;
       box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
     h2 {
@@ -221,18 +259,15 @@
       margin-bottom: 18px;
       font-size: 28px;
       letter-spacing: -0.02em;
-      color: white;
     }
 
     h3 {
-      font-size: 18px;
       margin-top: 0;
-      margin-bottom: 12px;
-      color: #dbeafe;
+      margin-bottom: 10px;
+      font-size: 18px;
     }
 
     p {
-      margin: 0 0 14px;
       color: var(--muted);
       line-height: 1.8;
       font-size: 15px;
@@ -240,214 +275,236 @@
 
     ul {
       margin: 0;
-      padding-left: 20px;
+      padding-left: 18px;
       color: var(--muted);
-    }
-
-    li {
-      margin-bottom: 12px;
       line-height: 1.8;
     }
+
+    li { margin-bottom: 10px; }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
-    .modern-card {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
-      border: 1px solid rgba(255,255,255,0.11);
+    .card {
       border-radius: 22px;
-      padding: 22px;
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+      padding: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
-    .modern-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(96,165,250,0.08), rgba(34,211,238,0.03), transparent);
-      pointer-events: none;
-    }
-
-    .modern-card:hover {
-      transform: translateY(-6px);
+    .card:hover {
+      transform: translateY(-4px);
       border-color: rgba(96,165,250,0.35);
-      box-shadow: 0 24px 42px rgba(0,0,0,0.24);
-    }
-
-    .modern-card h4 {
-      position: relative;
-      margin: 0 0 10px;
-      font-size: 18px;
-      color: white;
-    }
-
-    .modern-card p,
-    .modern-card li,
-    .modern-card div {
-      position: relative;
     }
 
     .tag {
       display: inline-block;
-      padding: 7px 12px;
+      margin-bottom: 10px;
+      padding: 6px 11px;
       border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid var(--border);
       font-size: 12px;
-      font-weight: 700;
-      color: #dbeafe;
-      background: rgba(96,165,250,0.14);
-      border: 1px solid rgba(96,165,250,0.22);
-      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 8px;
+      padding-left: 26px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(var(--accent), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -23px;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(96,165,250,0.15);
+    }
+
+    .timeline-role {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .timeline-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
     }
 
     .project-card {
-      position: relative;
+      border-radius: 22px;
       overflow: hidden;
-      border-radius: 24px;
-      padding: 22px;
-      background:
-        linear-gradient(180deg, rgba(17,24,39,0.85), rgba(17,24,39,0.72)),
-        linear-gradient(135deg, rgba(37,99,235,0.20), rgba(34,211,238,0.12));
-      border: 1px solid rgba(255,255,255,0.10);
-      transition: transform 0.28s ease, border-color 0.28s ease;
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(34,211,238,0.32);
+      transform: translateY(-4px);
+      border-color: rgba(34,211,238,0.35);
     }
 
-    .project-card .project-top {
+    .project-header {
+      padding: 20px;
+      cursor: pointer;
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 12px;
+      align-items: flex-start;
     }
 
-    .project-card .project-name {
-      font-size: 19px;
-      font-weight: 800;
-      color: white;
+    .project-title {
       margin: 0;
+      font-size: 18px;
+      font-weight: 800;
     }
 
-    .project-badge {
-      font-size: 11px;
-      font-weight: 800;
+    .project-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    .project-pill {
+      white-space: nowrap;
       padding: 7px 10px;
       border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
       background: rgba(52,211,153,0.12);
-      color: #a7f3d0;
-      border: 1px solid rgba(52,211,153,0.18);
-      white-space: nowrap;
+      color: var(--success);
+      border: 1px solid rgba(52,211,153,0.22);
     }
 
-    .project-card p {
-      margin-bottom: 0;
+    .project-body {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border);
     }
 
-    .edu-card,
-    .cert-list-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.06));
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 22px;
-      padding: 22px;
+    .project-card.active .project-body {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .project-section {
+      margin-top: 16px;
+    }
+
+    .project-section h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .footer {
-      margin-top: 24px;
       text-align: center;
-      color: #94a3b8;
+      padding: 22px 10px 8px;
+      color: var(--muted);
       font-size: 14px;
-      padding: 18px 10px;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      .page {
-        padding: 16px 12px 28px;
-      }
-
-      .hero {
-        padding: 34px 22px;
-        border-radius: 24px;
-      }
-
-      .hero h1 {
-        font-size: 30px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .panel {
-        padding: 22px 18px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      .tab-button {
-        width: 100%;
-        text-align: left;
-      }
+      .hero { padding: 24px 18px; }
+      .intro h1 { font-size: 30px; }
+      .panel { padding: 20px; }
+      .tab-button { width: 100%; text-align: left; }
+      .project-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="page">
     <section class="hero">
-      <div class="hero-content">
-        <div class="hero-badge">Technical Lead • Data Engineering • Cloud & AI Platforms</div>
-        <h1>Chennakrishna Thumpiri</h1>
-        <p>
-          Technical Lead – Data Engineering with 15 years of experience delivering scalable,
-          cloud-native data platforms and enterprise analytics solutions using Python, SQL,
-          PySpark, Databricks, AWS, Azure, and distributed data processing technologies.
-        </p>
-
-        <div class="highlights">
-          <div class="highlight">
-            <strong>15+</strong>
-            <span>Years of experience in enterprise data engineering</span>
-          </div>
-          <div class="highlight">
-            <strong>Databricks</strong>
-            <span>Lakehouse, Delta Lake, SQL, orchestration, performance tuning</span>
-          </div>
-          <div class="highlight">
-            <strong>AWS & Azure</strong>
-            <span>Modern cloud data architecture and analytics platforms</span>
-          </div>
-          <div class="highlight">
-            <strong>Metadata-Driven</strong>
-            <span>Reusable ingestion and ETL/ELT framework design</span>
+      <div class="hero-top">
+        <div class="identity">
+          <div class="photo" id="profilePhoto">CT</div>
+          <div class="intro">
+            <div class="badge">Technical Lead • Data Engineering • Cloud & AI Platforms</div>
+            <h1>Chennakrishna Thumpiri</h1>
+            <p>
+              Technical Lead – Data Engineering with 15 years of experience delivering scalable,
+              cloud-native data platforms and enterprise analytics solutions using Python, SQL,
+              PySpark, Databricks, Talend, AWS, Azure, and distributed data processing technologies.
+            </p>
           </div>
         </div>
+
+        <div class="hero-actions">
+          <button class="btn" onclick="toggleTheme()">🌗 Theme</button>
+          <a class="btn primary" href="mailto:your.email@example.com">✉ Email</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank">in LinkedIn</a>
+          <a class="btn" href="https://github.com/" target="_blank">⌘ GitHub</a>
+          <a class="btn" href="#" target="_blank">📄 Resume</a>
+        </div>
+      </div>
+
+      <div class="highlights">
+        <div class="highlight"><strong class="counter" data-target="15">0</strong><span>Years in Data Engineering & Analytics</span></div>
+        <div class="highlight"><strong class="counter" data-target="12">0</strong><span>Major enterprise client engagements</span></div>
+        <div class="highlight"><strong class="counter" data-target="5">0</strong><span>Cloud / platform modernization programs</span></div>
+        <div class="highlight"><strong class="counter" data-target="3">0</strong><span>Core platforms: Databricks, AWS, Azure</span></div>
       </div>
     </section>
 
@@ -456,8 +513,9 @@
         <button class="tab-button active" onclick="openTab(event, 'summary')">Summary</button>
         <button class="tab-button" onclick="openTab(event, 'technical')">Technical Capabilities</button>
         <button class="tab-button" onclick="openTab(event, 'skills')">Skills</button>
-        <button class="tab-button" onclick="openTab(event, 'certifications')">Certifications</button>
+        <button class="tab-button" onclick="openTab(event, 'timeline')">Experience Timeline</button>
         <button class="tab-button" onclick="openTab(event, 'projects')">Projects Delivered</button>
+        <button class="tab-button" onclick="openTab(event, 'certifications')">Certifications</button>
         <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
       </div>
     </div>
@@ -470,13 +528,10 @@
             <li>Technical Lead – Data Engineering with 15 years of experience delivering scalable, cloud-native data platforms and enterprise analytics solutions using Python, SQL, PySpark, and distributed data processing technologies.</li>
             <li>Strong architect-thinking approach in designing end-to-end data solutions, with deep expertise in Databricks Lakehouse, including Medallion architecture, Delta Lake optimization, Databricks SQL, workflow orchestration, cluster sizing strategies, and performance tuning for large-scale enterprise workloads.</li>
             <li>Proven experience leading data platform modernization initiatives, transforming legacy Oracle PL/SQL and traditional ETL ecosystems into distributed PySpark frameworks, significantly improving scalability, resiliency, and processing efficiency.</li>
-            <li>Enabled enterprise data platform scalability by building a configurable metadata-driven ingestion framework across Talend, AWS, Vertica, and Databricks, significantly improving onboarding velocity, standardization, and operational maintainability.</li>
-            <li>Designed and implemented metadata-driven, reusable ETL/ELT frameworks using Talend and Databricks, enabling standardized ingestion patterns, faster onboarding of new data sources, and improved maintainability of enterprise data pipelines.</li>
+            <li>Enabled enterprise data platform scalability by building configurable metadata-driven ingestion frameworks across Talend, AWS, Vertica, and Databricks, improving onboarding velocity, standardization, and maintainability.</li>
             <li>Extensive cloud engineering expertise across AWS and Azure supporting modern data warehousing, advanced analytics, and batch and near real-time data processing architectures.</li>
-            <li>Enabled an enterprise AI-driven developer productivity solution by building a PL/SQL-to-PySpark conversion chatbot using Amazon Bedrock, accelerating legacy migration efforts and reducing manual development effort across data engineering teams.</li>
-            <li>Strong experience in Master Data Management, data quality, and governance frameworks, leveraging Talend Data Quality and Collibra to improve trusted data availability and enforce enterprise data standards.</li>
-            <li>Focused on scalable solution design, performance optimization, and cost governance, implementing partitioning strategies, optimized storage formats, and workload tuning for high-volume analytics environments.</li>
-            <li>Experienced in leading cross-functional Agile teams, driving technical design discussions, mentoring engineers, conducting code reviews, and collaborating with product managers, architects, and business stakeholders.</li>
+            <li>Built an AI-driven developer productivity solution using Amazon Bedrock for PL/SQL-to-PySpark conversion to accelerate migration and improve code standardization.</li>
+            <li>Strong experience in Master Data Management, data quality, governance, performance optimization, cost governance, mentoring teams, and driving Agile delivery.</li>
           </ul>
         </div>
       </div>
@@ -485,36 +540,12 @@
         <div class="panel">
           <h2>Technical Capabilities</h2>
           <div class="grid">
-            <div class="modern-card">
-              <div class="tag">Architecture</div>
-              <h4>Cloud Data Platform Engineering</h4>
-              <p>Designing scalable enterprise-grade platforms across Databricks, AWS, Azure, and hybrid ecosystems.</p>
-            </div>
-            <div class="modern-card">
-              <div class="tag">Big Data</div>
-              <h4>Distributed Processing</h4>
-              <p>Building large-scale data pipelines using PySpark, Spark SQL, Hadoop, and optimized storage patterns.</p>
-            </div>
-            <div class="modern-card">
-              <div class="tag">Lakehouse</div>
-              <h4>Information Architecture</h4>
-              <p>Implementing Medallion architecture, Delta Lake design patterns, and reusable enterprise data layers.</p>
-            </div>
-            <div class="modern-card">
-              <div class="tag">ETL / ELT</div>
-              <h4>Framework Design</h4>
-              <p>Creating metadata-driven reusable ingestion and transformation frameworks for standardization and speed.</p>
-            </div>
-            <div class="modern-card">
-              <div class="tag">Governance</div>
-              <h4>MDM & Data Quality</h4>
-              <p>Improving trust and governance through match/merge logic, data quality processes, and standards enforcement.</p>
-            </div>
-            <div class="modern-card">
-              <div class="tag">Leadership</div>
-              <h4>Agile Delivery & Mentoring</h4>
-              <p>Leading teams, reviewing designs and code, mentoring engineers, and aligning delivery with business needs.</p>
-            </div>
+            <div class="card"><div class="tag">Architecture</div><h3>Cloud Data Platform Engineering</h3><p>Designing scalable enterprise platforms across Databricks, AWS, Azure, Hadoop, Redshift, Synapse, and ADLS.</p></div>
+            <div class="card"><div class="tag">Lakehouse</div><h3>Databricks & Distributed Processing</h3><p>Medallion architecture, Delta Lake, Spark SQL, DLT, cluster sizing, workflow orchestration, and optimization.</p></div>
+            <div class="card"><div class="tag">Frameworks</div><h3>Metadata-Driven ETL / ELT</h3><p>Reusable ingestion, standardization, onboarding acceleration, auditability, and maintainability at scale.</p></div>
+            <div class="card"><div class="tag">Governance</div><h3>MDM, Data Quality & Security</h3><p>Trusted data availability through Talend DQ, Collibra, row-level security, schema permissions, and controls.</p></div>
+            <div class="card"><div class="tag">Performance</div><h3>Optimization & Cost Governance</h3><p>Partitioning, storage formats, query tuning, workload optimization, and SLA-focused production engineering.</p></div>
+            <div class="card"><div class="tag">Leadership</div><h3>Team Leadership & Delivery</h3><p>Solution design, mentoring, estimations, code review, sprint execution, stakeholder engagement, and production readiness.</p></div>
           </div>
         </div>
       </div>
@@ -523,48 +554,49 @@
         <div class="panel">
           <h2>Skills</h2>
           <div class="grid">
-            <div class="modern-card">
-              <h4>Languages</h4>
-              <p>Python, SQL, PL/SQL, Java, Shell Scripting</p>
-            </div>
-            <div class="modern-card">
-              <h4>Data Engineering</h4>
-              <p>Databricks Lakehouse, PySpark, Spark SQL, Delta Lake, Hadoop</p>
-            </div>
-            <div class="modern-card">
-              <h4>ETL & Integration</h4>
-              <p>Talend DI, Talend DQ, Talend MDM, Qlik Replicate, AWS DMS</p>
-            </div>
-            <div class="modern-card">
-              <h4>Databases</h4>
-              <p>Oracle, SQL Server, MySQL, PostgreSQL, Hive, Impala, Vertica, Redshift, Synapse</p>
-            </div>
-            <div class="modern-card">
-              <h4>Cloud Platforms</h4>
-              <p>AWS, Azure, Databricks, Talend Cloud</p>
-            </div>
-            <div class="modern-card">
-              <h4>AI / GenAI</h4>
-              <p>Amazon Bedrock, Databricks Genie</p>
-            </div>
+            <div class="card"><h3>Languages</h3><p>Python, SQL, PL/SQL, Java, Shell Scripting, T-SQL</p></div>
+            <div class="card"><h3>Data Engineering</h3><p>Databricks, PySpark, Spark SQL, Delta Lake, DLT, Hadoop, Hive, Impala</p></div>
+            <div class="card"><h3>ETL / Integration</h3><p>Talend DI, Talend Big Data, Talend DQ, Talend MDM, Qlik Replicate, AWS DMS, SSIS</p></div>
+            <div class="card"><h3>Cloud</h3><p>AWS S3, EMR, Redshift, Glue, Athena, Bedrock, Azure Synapse, ADLS, ADF, HDInsight</p></div>
+            <div class="card"><h3>Databases</h3><p>Oracle, SQL Server, MySQL, PostgreSQL, Vertica, Redshift, Synapse, Hive</p></div>
+            <div class="card"><h3>DevOps / Scheduling</h3><p>Jenkins, Control-M, SQL Server Agent, SVN, Nexus, GitHub, Jira</p></div>
           </div>
         </div>
       </div>
 
-      <div id="certifications" class="tab-content">
+      <div id="timeline" class="tab-content">
         <div class="panel">
-          <h2>Certifications</h2>
-          <div class="grid">
-            <div class="cert-list-card">
-              <ul>
-                <li>Databricks Certified Data Engineer Professional</li>
-                <li>Qlik Talend Solution Architect</li>
-                <li>AWS Certified Solutions Architect – Associate</li>
-                <li>Microsoft Certified: Azure Administrator Associate</li>
-                <li>Talend Big Data v6 Certified Developer</li>
-                <li>Talend Data Integration v7 Certified Developer</li>
-                <li>MCTS (Microsoft Certified Technology Specialist)</li>
-              </ul>
+          <h2>Experience Timeline</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-role">Technical Lead – TE Connectivity</div>
+              <div class="timeline-meta">Feb 2021 – Dec 2025 | Databricks, Talend Big Data, AWS</div>
+              <p>Led migration, CDC ingestion, DLT pipelines, Redshift consumption layers, security, CI/CD, and team delivery.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-role">Technical Lead – Henry Schein</div>
+              <div class="timeline-meta">Jun 2022 – Jun 2023 | Talend Cloud, Azure Synapse, SQL Server</div>
+              <p>Reviewed architecture, improved ELT scalability, implemented CI/CD, TMC orchestration, ADLS lake, and Synapse analytics.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-role">Technical Lead – Reliant Rehab</div>
+              <div class="timeline-meta">Apr 2022 – Aug 2022 | Azure Synapse, ADLS, SQL Server</div>
+              <p>Designed solution architecture, ETL workflows, warehouse models, CI/CD, auditing, and production support.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-role">Track Lead – Maxis</div>
+              <div class="timeline-meta">Dec 2018 – Dec 2020 | Talend Big Data, Talend MDM, Vertica</div>
+              <p>Led Big Data ingestion, TAC administration, metadata-driven frameworks, Hive / HDFS processing, and MDM deployment.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-role">Senior Engineer – Bank Danamon / Lincoln / Disney</div>
+              <div class="timeline-meta">2015 – 2018 | Hadoop, Talend, AWS, Pig, Hive, MDM</div>
+              <p>Delivered framework-based Talend pipelines, EMR workloads, Pig processing, source-to-hive ingestion, and validation tooling.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-role">Early Career Projects</div>
+              <div class="timeline-meta">2012 – 2015 | Redshift, Jasper, SQL Server, Power BI / MSBI</div>
+              <p>Built warehousing, reporting, dashboarding, SSIS / SSAS / SSRS, Jasper, and Redshift-based solutions.</p>
             </div>
           </div>
         </div>
@@ -573,78 +605,254 @@
       <div id="projects" class="tab-content">
         <div class="panel">
           <h2>Projects Delivered</h2>
+          <p>Click a project card to expand detailed responsibilities, tools, and delivery highlights.</p>
+
           <div class="project-grid">
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">TE Connectivity</h3>
-                <div class="project-badge">Modernization</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">TE Connectivity</div>
+                  <div class="project-subtitle">Technical Lead | Feb 2021 – Dec 2025 | Databricks, Talend Big Data, AWS</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Led Talend + Cloudera to Talend + AWS to Databricks + AWS modernization using Redshift, Aurora, Jenkins, Control-M, GitHub, and metadata-driven ingestion frameworks.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>Project Overview</h4>
+                  <p>Led data platform modernization for a global technology manufacturer, enabling migration from legacy Talend / Hadoop patterns to Databricks and AWS-based scalable enterprise data processing.</p>
+                </div>
+                <div class="project-section">
+                  <h4>Key Technologies</h4>
+                  <div class="chips">
+                    <span class="chip">Databricks</span><span class="chip">AWS DMS</span><span class="chip">Qlik Replicate</span><span class="chip">S3</span><span class="chip">DLT</span><span class="chip">Redshift</span><span class="chip">Jenkins</span><span class="chip">Control-M</span><span class="chip">Talend</span>
+                  </div>
+                </div>
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Gathered business requirements and proactively worked with SMEs to clarify ambiguous requirements and align delivery across teams.</li>
+                    <li>Created CDC pipelines using AWS DMS / Qlik Replicate to land source changes into S3 using supplemental logging.</li>
+                    <li>Worked on migration from Talend ETL to Databricks platform and implemented DLT pipelines for full and delta processing.</li>
+                    <li>Designed quality enrichment transformations into publication layers with custom SCD logic for target tables.</li>
+                    <li>Applied row-level security, created materialized views, and prepared business consumption layers.</li>
+                    <li>Managed a team of 5, performed work delegation, and supported Jira sprint planning, grooming, estimation, and execution monitoring.</li>
+                    <li>Prepared dataset design documents, ETL mapping documents, existing architecture views, and layer-wise transformation estimations.</li>
+                    <li>Built AWS-based transformation solutions for multiple source systems using Spark processing.</li>
+                    <li>Migrated data from Hadoop to AWS cloud and tuned ETL scripts for performance issues.</li>
+                    <li>Performed QA on deliverables and implemented CI/CD promotion from Dev to QA to Prod using Jenkins.</li>
+                    <li>Automated production scheduling using Control-M and developed Python utilities for source-target structure comparison.</li>
+                    <li>Designed Redshift tables, selected compression types, loaded data from S3 using COPY, created technical and business views, and managed schema/table/column permissions.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">Henry Schein</h3>
-                <div class="project-badge">Azure Platform</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">Henry Schein</div>
+                  <div class="project-subtitle">Technical Lead | Jun 2022 – Jun 2023 | Talend Cloud, Azure Synapse, SQL Server</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Supported Talend + Cloudera to Talend + Azure modernization using Synapse, Azure SQL, and reusable metadata ingestion patterns.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>Project Overview</h4>
+                  <p>Improved the existing Talend Cloud and Azure-based data platform for a healthcare solutions company by focusing on scalability, reliability, performance, orchestration, and production readiness.</p>
+                </div>
+                <div class="project-section">
+                  <h4>Key Technologies</h4>
+                  <div class="chips">
+                    <span class="chip">Talend Cloud</span><span class="chip">Azure Synapse</span><span class="chip">SQL Server</span><span class="chip">ADLS</span><span class="chip">TMC</span><span class="chip">Cloudera</span><span class="chip">T-SQL</span>
+                  </div>
+                </div>
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Reviewed existing architecture and Talend Cloud implementation, identifying improvements for scalability, reliability, and cost.</li>
+                    <li>Migrated and optimized ELT processes loading data into SQL Server staging and warehouse tables.</li>
+                    <li>Developed T-SQL stored procedures, views, and functions for transformation logic and dimensional warehouse models.</li>
+                    <li>Tuned long-running SQL queries, reducing batch execution time significantly.</li>
+                    <li>Implemented SQL Server Agent jobs for scheduling and SLA tracking.</li>
+                    <li>Built BI-ready datasets using SQL-based transformations for reporting teams.</li>
+                    <li>Migrated Talend jobs from Cloudera 6.x to 7.x and ensured compatibility and cutover stability.</li>
+                    <li>Implemented CI/CD from Talend Studio to Talend Management Console and created ETL tasks and execution plans in TMC.</li>
+                    <li>Set up and administered Remote Engines for secure production runtime execution.</li>
+                    <li>Led deployments, executed full loads, validated outputs, and provided production support with RCA and long-term fixes.</li>
+                    <li>Ingested data from multiple sources including AS400 into Azure Synapse and maintained ADLS landing and curated zones.</li>
+                    <li>Acted in an architect capacity by recommending improvements in orchestration, data quality, and monitoring.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">Reliant Rehab</h3>
-                <div class="project-badge">Analytics</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">Reliant Rehab</div>
+                  <div class="project-subtitle">Technical Lead | Apr 2022 – Aug 2022 | Azure Synapse, ADLS, SQL Server</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Implemented Azure Data Factory, Azure Synapse, and Power BI driven solutions for enterprise data and analytics delivery.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Led requirement gathering and translated functional needs into scalable SQL Server and Synapse data warehouse solutions.</li>
+                    <li>Designed end-to-end solution architecture, data flow diagrams, source-to-target mappings, and technical documentation.</li>
+                    <li>Built ETL workflows to migrate data from iCIMS API into SQL Server warehouse with reliable incremental loads.</li>
+                    <li>Developed and optimized stored procedures, views, functions, and MERGE logic for warehouse loading.</li>
+                    <li>Designed dimensional models and built staging / archival zones in ADLS.</li>
+                    <li>Implemented Jenkins-based CI/CD and SQL Server Agent scheduling.</li>
+                    <li>Added metadata logging, auditing, restartability, governance tracking, and production support improvements.</li>
+                    <li>Mentored offshore team members and enforced coding and deployment standards.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">Maxis</h3>
-                <div class="project-badge">Telco Data</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">Maxis</div>
+                  <div class="project-subtitle">Track Lead | Dec 2018 – Dec 2020 | Talend Big Data, Talend MDM</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Worked on Talend DI, HPE Vertica, Cloudera, Telco Data Model, MySQL, and metadata-driven ingestion framework implementation.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Gathered requirements, created mapping and design documents, and obtained business approvals.</li>
+                    <li>Worked heavily on Talend TAC for project setup, user management, deployments, and execution plans.</li>
+                    <li>Managed code migrations across DEV, SIT, UAT, and Production using SVN and Nexus.</li>
+                    <li>Handled production bugs, prepared RCAs, and supported customer approval cycles.</li>
+                    <li>Built Talend Big Data jobs using Sqoop, HDFS, Hive, and Vertica-based downstream warehouse models.</li>
+                    <li>Created metadata tables and monitoring log tables to support orchestration and notifications.</li>
+                    <li>Involved in UAT explanation, production deployment, and Talend MDM solution rollout.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">Bank Danamon</h3>
-                <div class="project-badge">Big Data</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">Bank Danamon</div>
+                  <div class="project-subtitle">Senior Hadoop & Talend ETL Engineer | Jan 2018 – Dec 2018</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Delivered Talend Big Data solutions, including Informatica-to-Talend conversion, with Hive, Impala, messaging, and configurable metadata ingestion patterns.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Explained framework-based modernization approach to the customer and converted jobs into reusable patterns.</li>
+                    <li>Created jobs for loading source data into Hive at each layer.</li>
+                    <li>Migrated Informatica workflows to Talend jobs and converted UDF logic into Hive / Impala UDFs.</li>
+                    <li>Used ActiveMQ for status management and parallel processing orchestration.</li>
+                    <li>Worked with HDFS, Hive, Impala, Sqoop, SVN, Nexus, and Talend Admin Console.</li>
+                    <li>Implemented exception and error handling to track daily table status and supported cross-environment promotion.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">Lincoln Financial Group</h3>
-                <div class="project-badge">Enterprise Integration</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">Lincoln Financial Group</div>
+                  <div class="project-subtitle">Senior AWS, Hadoop, Shell Script, Talend ETL Engineer | Jan 2016 – Jun 2018</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Built Talend DI, Talend Big Data, Talend MDM, and AWS-based enterprise data integration solutions.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Developed EMDM and EODS jobs and tuned them for large datasets.</li>
+                    <li>Used Talend Big Data batch jobs on MapReduce and Spark frameworks.</li>
+                    <li>Processed landing data from S3, wrote Pig scripts and Pig UDFs, and executed jobs on EMR through Amazon Data Pipeline.</li>
+                    <li>Built Talend MDM jobs to create master records and loaded outputs into Talend MDM and MySQL through Sqoop.</li>
+                    <li>Created shell scripts for validation, file merge, and S3 load / unload automation.</li>
+                    <li>Worked on Talend and EMR version upgrades and production monitoring of pipelines and clusters.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">ABC Networks (Disney)</h3>
-                <div class="project-badge">AWS + Python</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">ABC Networks (Disney)</div>
+                  <div class="project-subtitle">Senior Talend ETL & Hadoop Developer | Oct 2015 – Jan 2016</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Created data engineering solutions using Python, AWS, Talend, and Hadoop for enterprise media workflows.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Migrated Python code into Talend jobs.</li>
+                    <li>Processed data from S3 into Hive tables.</li>
+                    <li>Validated files, routed valid files into Hadoop, and created Hive external tables.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">Triumph Learning</h3>
-                <div class="project-badge">Reporting</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">IDT911 / Akken / Triumph Learning</div>
+                  <div class="project-subtitle">2013 – 2015 | Talend, Jasper, Redshift, MySQL, AWS</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Worked on Talend, AWS RDS, Redshift, and Jasper-based data integration and reporting solutions.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Designed ODS and warehouse schemas and loaded data from Salesforce / MySQL into Redshift.</li>
+                    <li>Developed Talend jobs, managed Jasper servers on EC2, and created / deployed reports.</li>
+                    <li>Built dimensions and fact tables, incremental loads, and scheduling processes.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="project-card">
-              <div class="project-top">
-                <h3 class="project-name">UCSD Power Analysis</h3>
-                <div class="project-badge">Analytics</div>
+              <div class="project-header" onclick="toggleProject(this)">
+                <div>
+                  <div class="project-title">Commonwealth / UCSD / Tata Power / DOALL</div>
+                  <div class="project-subtitle">2012 – 2013 | SQL Server, PI AF, Power Pivot, MSBI</div>
+                </div>
+                <div class="project-pill">Expand</div>
               </div>
-              <p>Delivered analytics and reporting solutions with OSI PI AF, Microsoft Power Pivot, and Power View.</p>
+              <div class="project-body">
+                <div class="project-section">
+                  <h4>What I Did</h4>
+                  <ul>
+                    <li>Built SQL Server staging and target structures, stored procedures, audit tracking, and Talend-based Excel ingestion.</li>
+                    <li>Developed AF structures, Power Pivot / Power View dashboards, DAX measures, maps, and energy analytics views.</li>
+                    <li>Created SSIS, SSAS, SSRS, KPIs, aggregations, fact loads, and affinity analysis for reporting solutions.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="certifications" class="tab-content">
+        <div class="panel">
+          <h2>Certifications</h2>
+          <div class="grid">
+            <div class="card"><h3>Databricks</h3><p>Databricks Certified Data Engineer Professional</p></div>
+            <div class="card"><h3>Talend / Qlik</h3><p>Qlik Talend Solution Architect<br>Talend Big Data v6 Certified Developer<br>Talend Data Integration v7 Certified Developer</p></div>
+            <div class="card"><h3>AWS</h3><p>AWS Certified Solutions Architect – Associate</p></div>
+            <div class="card"><h3>Microsoft</h3><p>Microsoft Certified: Azure Administrator Associate<br>MCTS</p></div>
           </div>
         </div>
       </div>
@@ -652,7 +860,7 @@
       <div id="education" class="tab-content">
         <div class="panel">
           <h2>Education</h2>
-          <div class="edu-card">
+          <div class="card">
             <h3>Master of Computer Applications</h3>
             <p>Jawaharlal Nehru Technological University, Hyderabad, India</p>
           </div>
@@ -661,7 +869,7 @@
     </div>
 
     <div class="footer">
-      © 2026 Chennakrishna Thumpiri | Technical Lead – Data & AI Platforms
+      © 2026 Chennakrishna Thumpiri | Technical Lead – Data Engineering
     </div>
   </div>
 
@@ -676,6 +884,46 @@
       document.getElementById(tabId).classList.add("active");
       evt.currentTarget.classList.add("active");
     }
+
+    function toggleProject(header) {
+      const card = header.parentElement;
+      card.classList.toggle("active");
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+    }
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light");
+      }
+    }
+
+    function animateCounters() {
+      const counters = document.querySelectorAll(".counter");
+      counters.forEach(counter => {
+        const target = +counter.getAttribute("data-target");
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 40));
+
+        const updateCounter = () => {
+          current += step;
+          if (current >= target) {
+            counter.textContent = target + "+";
+          } else {
+            counter.textContent = current;
+            requestAnimationFrame(updateCounter);
+          }
+        };
+        updateCounter();
+      });
+    }
+
+    loadTheme();
+    window.addEventListener("load", animateCounters);
   </script>
 </body>
 </html>
